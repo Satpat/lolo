@@ -9,7 +9,7 @@ const config = {
     characterEmoji: "\ud83d\udc3b",
     celebrationMessage: "Yay! I knew it!",
     celebrationSubtext:
-      "Adelaide ↔ Bhubaneswar. Nothing stops us \u2764\ufe0f",
+      "Adelaide ↔ Bhubaneswar. Nothing stops us.",
     noButtonTexts: [
       "No",
       "Are you sure?",
