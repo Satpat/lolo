@@ -61,7 +61,7 @@ const config = {
     "Your beautiful eyes. Can I please get lost in them forever?",
     "Your husky voice. Every time I hear it, I feel like I\u2019m wrapped in a warm blanket",
     "Your angelic smile. It brightens up my darkest days and makes everything better",
-    "Your weird and goofy ways. I love how we are slowly unravelling each others quicks",
+    "Your weird and goofy ways. I love how we are slowly unravelling each others quirks",
     "The way you told me how you felt on that Discord call after we watched Shrinking. I\u2019ll never forget that moment",
     "How you care for every street dog you meet, like they\u2019re the most important beings in the world",
     "Your kindness that never wavers, even when your own life is unbelievably heavy",
