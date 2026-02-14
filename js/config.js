@@ -78,10 +78,24 @@ const config = {
 
   timeline: [
     {
+      date: "November 1, 2025",
+      title: "The Instagram story about my AuADHD Diagnosis",
+      description:
+        "The beginning of everything. My lil cousin bro (Prithvi) reshared the story and it got someone's attention. Start of the domino effect. ",
+      photo: "",
+    },
+    {
+      date: "November 3, 2025",
+      title: "Someone slid into my Instagram DMs asking \u2019how does one start running?\u2019",
+      description:
+        "I don't think I helped her start running.",
+      photo: "",
+    },
+    {
       date: "November 7, 2025",
       title: "We First Talked on Call (for 4 Hours)",
       description:
-        "The beginning of everything. A conversation that changed my life.",
+        "A small check-in conversation that ended up changing my life.",
       photo: "",
     },
     {
