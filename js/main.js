@@ -145,6 +145,19 @@ function initReasons() {
 
     grid.appendChild(card);
   });
+
+  // "& a million more..." closing card
+  const moreCard = document.createElement("div");
+  moreCard.className = "reason-card reason-card-more";
+  moreCard.innerHTML = `
+    <div class="card-inner">
+      <div class="card-front">
+        <div class="envelope-icon">&#x221E;</div>
+        <div class="reason-number">& a million more...</div>
+      </div>
+    </div>
+  `;
+  grid.appendChild(moreCard);
 }
 
 /* --- Music --- */

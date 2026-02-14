@@ -588,6 +588,24 @@ a {
   font-weight: 300;
 }
 
+/* "& a million more" closing card */
+.reason-card-more .card-front {
+  background: var(--gradient-rose);
+  border-color: var(--red);
+  color: var(--white);
+}
+
+.reason-card-more .envelope-icon {
+  font-size: 3rem;
+  font-family: var(--font-romantic);
+}
+
+.reason-card-more .reason-number {
+  color: var(--white);
+  font-family: var(--font-romantic);
+  font-size: 1.2rem;
+}
+
 /* Hover lift: desktop only — avoids jank on touch */
 @media (hover: hover) {
   .reason-card:hover .card-inner {
@@ -698,6 +716,25 @@ a {
   border-radius: 0.5rem;
   margin-top: 0.75rem;
   object-fit: cover;
+}
+
+/* Infinity timeline item */
+.timeline-infinity {
+  font-size: 3.5rem;
+  background: var(--gradient-rose);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-card-infinity {
+  text-align: center;
+}
+
+.timeline-dot-infinity {
+  background: var(--gold);
 }
 
 /* Scroll animation states */

@@ -30,6 +30,20 @@ function initTimeline() {
     container.appendChild(item);
   });
 
+  // Infinity closing item
+  const side = events.length % 2 === 0 ? "left" : "right";
+  const infinityItem = document.createElement("div");
+  infinityItem.className = `timeline-item ${side}`;
+  infinityItem.innerHTML = `
+    <div class="timeline-dot timeline-dot-infinity"></div>
+    <div class="timeline-card timeline-card-infinity">
+      <div class="timeline-infinity">&infin;</div>
+      <h3 class="timeline-title">Forever & Beyond</h3>
+      <p class="timeline-description">This is just the beginning, Puchki.</p>
+    </div>
+  `;
+  container.appendChild(infinityItem);
+
   // Scroll-triggered reveal using Intersection Observer
   const observer = new IntersectionObserver(
     (entries) => {
