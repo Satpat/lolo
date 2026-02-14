@@ -79,7 +79,7 @@ const config = {
   timeline: [
     {
       date: "November 7, 2025",
-      title: "We First Talked on Call for 4 Hours",
+      title: "We First Talked on Call (for 4 Hours)",
       description:
         "The beginning of everything. A conversation that changed my life.",
       photo: "",
