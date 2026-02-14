@@ -5,7 +5,7 @@ const config = {
   },
 
   game: {
-    question: "Will you be with me forever?",
+    question: "Will you be my Valentine forever?",
     characterEmoji: "\ud83d\udc3b",
     celebrationMessage: "Yay! I knew it!",
     celebrationSubtext:
