@@ -24,6 +24,7 @@ function initGame() {
   // --- "Yes" button: celebrate! ---
   yesBtn.addEventListener("click", () => {
     gameContainer.classList.add("hidden");
+    noBtn.classList.add("hidden"); // Hide No button (it may be absolutely positioned outside gameContainer)
     celebration.classList.remove("hidden");
     celebrationText.textContent = game.celebrationMessage;
     celebrationSubtext.textContent = game.celebrationSubtext;
@@ -44,44 +45,51 @@ function initGame() {
     }
   });
 
-  // --- "No" button: dodge on hover (desktop) ---
-  noBtn.addEventListener("mouseenter", () => {
+  // Debounce to prevent double-firing on mobile (touchstart + click)
+  let lastDodgeTime = 0;
+  function handleNoDodge(e) {
+    e.preventDefault();
+    const now = Date.now();
+    if (now - lastDodgeTime < 300) return; // Ignore if fired within 300ms
+    lastDodgeTime = now;
     dodgeNoButton(noBtn);
     updateNoButton(noBtn);
     growYesButton(yesBtn);
-  });
+  }
+
+  // --- "No" button: dodge on hover (desktop) ---
+  noBtn.addEventListener("mouseenter", handleNoDodge);
 
   // --- "No" button: dodge on touch (mobile) ---
-  noBtn.addEventListener("touchstart", (e) => {
-    e.preventDefault();
-    dodgeNoButton(noBtn);
-    updateNoButton(noBtn);
-    growYesButton(yesBtn);
-  });
+  noBtn.addEventListener("touchstart", handleNoDodge, { passive: false });
 
   // --- "No" button: if somehow clicked, still dodge ---
-  noBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    dodgeNoButton(noBtn);
-    updateNoButton(noBtn);
-    growYesButton(yesBtn);
-  });
+  noBtn.addEventListener("click", handleNoDodge);
 
   function dodgeNoButton(btn) {
     const section = document.getElementById("game");
     const btnW = btn.offsetWidth;
     const btnH = btn.offsetHeight;
 
-    // Use absolute positioning relative to game section (works on mobile scroll)
+    // Use the visible viewport height rather than the section's full CSS height.
+    // On mobile, window.innerHeight accounts for browser chrome (address bar, etc.)
+    // which makes it more reliable than section.clientHeight.
+    const sectionW = section.clientWidth;
+    const sectionH = Math.min(section.clientHeight, window.innerHeight);
+
+    // Keep the button away from the nav bar at the top and edges
+    const navHeight = 70; // nav bar + safe margin
     const pad = 20;
-    const sectionW = section.offsetWidth;
-    const sectionH = section.offsetHeight;
-    const maxX = sectionW - btnW - pad;
-    const maxY = sectionH - btnH - pad * 2;
+    const topPad = navHeight;
 
-    const newX = Math.random() * Math.max(maxX, 50) + pad;
-    const newY = Math.random() * Math.max(maxY, 50) + pad;
+    // Ensure the button stays well within visible, tappable bounds
+    const maxX = Math.max(sectionW - btnW - pad, pad);
+    const maxY = Math.max(sectionH - btnH - pad, topPad);
 
+    const newX = Math.random() * (maxX - pad) + pad;
+    const newY = Math.random() * (maxY - topPad) + topPad;
+
+    // Position absolute relative to the game section (which has position: relative)
     btn.style.position = "absolute";
     btn.style.left = newX + "px";
     btn.style.top = newY + "px";

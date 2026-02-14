@@ -234,13 +234,16 @@ a {
   background: var(--cream);
   justify-content: center;
   position: relative;
-  overflow: hidden;
-  /* No button needs to move within this container */
+  overflow: visible;
+  /* No button moves within this section via position: absolute.
+     overflow must be visible so the button isn't clipped on mobile. */
 }
 
 .game-container {
   text-align: center;
   z-index: 1;
+  /* Allow No button to escape this container and move within game-section */
+  position: static;
 }
 
 .game-character {
@@ -262,7 +265,7 @@ a {
   justify-content: center;
   align-items: center;
   min-height: 80px;
-  position: relative;
+  /* Keep static so the No button positions relative to game-section when dodging */
 }
 
 .yes-btn,
@@ -275,6 +278,9 @@ a {
   border-radius: 3rem;
   cursor: pointer;
   transition: all var(--transition);
+  touch-action: manipulation;
+  min-height: 44px;
+  min-width: 44px;
 }
 
 .yes-btn {
@@ -292,7 +298,8 @@ a {
   background: var(--pink-light);
   color: var(--text-light);
   border: 2px solid var(--pink);
-  position: absolute;
+  /* Starts as relative (sits next to Yes button), JS switches to absolute on dodge */
+  position: relative;
 }
 
 .no-btn:hover {
