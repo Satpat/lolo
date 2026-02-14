@@ -1,0 +1,239 @@
+/* ============================================
+   ANIMATIONS — For Lolo
+   ============================================ */
+
+/* --- Floating Hearts (Hero) --- */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(var(--drift, 30px)) rotate(var(--spin, 180deg)) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.heart-particle {
+  animation: floatUp var(--duration, 12s) var(--delay, 0s) linear infinite;
+  font-size: var(--size, 1.5rem);
+  color: var(--color, #ff6b9d);
+  will-change: transform, opacity;
+}
+
+/* Lighter GPU load on mobile */
+@media (max-width: 768px) {
+  .heart-particle {
+    will-change: auto;
+  }
+
+  .confetti {
+    will-change: auto;
+  }
+}
+
+/* --- Enter Button Pulse --- */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(255, 107, 157, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 35px rgba(255, 107, 157, 0.7);
+  }
+}
+
+.enter-btn {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* --- Character Bounce (Game) --- */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.game-character {
+  animation: bounce 1.5s ease-in-out infinite;
+}
+
+/* --- Yes Button Heartbeat --- */
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.05);
+  }
+  30% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.08);
+  }
+}
+
+.yes-btn {
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+/* --- Confetti Fall --- */
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(var(--confetti-spin, 720deg)) translateX(var(--confetti-drift, 0px)) scale(0.3);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  animation: confettiFall var(--confetti-duration, 3s) var(--confetti-delay, 0s) ease-in forwards;
+  will-change: transform, opacity;
+}
+
+/* --- Card Flip (Reasons) --- */
+.card-inner {
+  transition: transform 0.6s ease;
+}
+
+/* --- Section Fade In --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-title {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* --- Celebration Entrance --- */
+@keyframes celebrationPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.celebration:not(.hidden) .celebration-content {
+  animation: celebrationPop 0.6s ease-out forwards;
+}
+
+/* --- Gallery Item Hover Shimmer (desktop only) --- */
+@media (hover: hover) {
+  .gallery-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.15) 50%,
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-item:hover::after {
+    opacity: 1;
+  }
+}
+
+/* --- Lightbox Transition --- */
+.lightbox:not(.hidden) {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lightbox-image {
+  animation: zoomIn 0.3s ease-out;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --- Envelope Wiggle on Hover --- */
+.reason-card:not(.flipped):hover .envelope-icon {
+  animation: wiggle 0.4s ease;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+
+/* --- Timeline Dot Pulse --- */
+.timeline-item.visible .timeline-dot {
+  animation: dotPulse 1.5s ease-out;
+}
+
+@keyframes dotPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 157, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 12px rgba(255, 107, 157, 0);
+  }
+}
+
+/* --- Footer Heart Beat --- */
+.site-footer:hover {
+  color: var(--red);
+  transition: color 0.3s ease;
+}
+
+/* --- Reduce Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

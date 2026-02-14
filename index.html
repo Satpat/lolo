@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>For Lolo</title>
+  <meta name="theme-color" content="#ffeef8">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x2764;</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="main-nav" id="mainNav">
+    <ul class="nav-list">
+      <li><a href="#hero" class="nav-link active" data-section="hero">Home</a></li>
+      <li><a href="#game" class="nav-link" data-section="game">Game</a></li>
+      <li><a href="#gallery" class="nav-link" data-section="gallery">Gallery</a></li>
+      <li><a href="#reasons" class="nav-link" data-section="reasons">Reasons</a></li>
+      <li><a href="#timeline" class="nav-link" data-section="timeline">Timeline</a></li>
+    </ul>
+    <button class="music-toggle hidden" id="musicToggle" aria-label="Toggle music">
+      <span class="music-icon">&#9835;</span>
+    </button>
+  </nav>
+
+  <!-- Section 1: Hero / Landing -->
+  <section id="hero" class="section hero-section">
+    <div class="hearts-container" id="heartsContainer"></div>
+    <div class="hero-content">
+      <h1 class="girlfriend-name">Lolo</h1>
+      <p class="hero-subtitle">Something I made for you...</p>
+      <button class="enter-btn" id="enterBtn">Click to Enter &#9829;</button>
+    </div>
+  </section>
+
+  <!-- Section 2: Valentine Game -->
+  <section id="game" class="section game-section">
+    <div class="game-container" id="gameContainer">
+      <div class="game-character" id="gameCharacter"></div>
+      <h2 class="game-question" id="gameQuestion"></h2>
+      <div class="game-buttons">
+        <button class="yes-btn" id="yesBtn">Yes!</button>
+        <button class="no-btn" id="noBtn">No</button>
+      </div>
+    </div>
+    <div class="celebration hidden" id="celebration">
+      <div class="confetti-container" id="confettiContainer"></div>
+      <div class="celebration-content">
+        <h2 class="celebration-text" id="celebrationText"></h2>
+        <p class="celebration-subtext" id="celebrationSubtext"></p>
+        <div class="celebration-hearts">
+          &#10084;&#65039; &#10084;&#65039; &#10084;&#65039;
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Photo Gallery -->
+  <section id="gallery" class="section gallery-section">
+    <h2 class="section-title">Our Beautiful Moments</h2>
+    <div class="gallery-grid" id="galleryGrid"></div>
+
+    <!-- Lightbox -->
+    <div class="lightbox hidden" id="lightbox">
+      <button class="lightbox-close" id="lightboxClose">&times;</button>
+      <button class="lightbox-prev" id="lightboxPrev">&#8249;</button>
+      <button class="lightbox-next" id="lightboxNext">&#8250;</button>
+      <div class="lightbox-content">
+        <img src="" alt="" class="lightbox-image" id="lightboxImage">
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Reasons I Love You -->
+  <section id="reasons" class="section reasons-section">
+    <h2 class="section-title">Reasons I Love You</h2>
+    <div class="reasons-grid" id="reasonsGrid"></div>
+  </section>
+
+  <!-- Section 5: Relationship Timeline -->
+  <section id="timeline" class="section timeline-section">
+    <h2 class="section-title">Our Journey</h2>
+    <div class="timeline-container" id="timelineContainer"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>Made with &#10084;&#65039; from Adelaide to Bhubaneswar</p>
+  </footer>
+
+  <!-- Scripts (config first, then modules, then main) -->
+  <script src="js/config.js"></script>
+  <script src="js/valentine-game.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
